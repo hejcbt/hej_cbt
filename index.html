@@ -199,16 +199,42 @@
     <div class="map-section">
         <h2>Nasze Gabinety</h2>
         <div class="map-container">
+            <!-- Pierwszy kafelek -->
             <div class="map-card">
                 <p>ul. Świętokrzyska 4/3</p>
-                <img id="mapImage1" src="gabinets1.png" alt="Gabinet 1">
+                <img id="map1" src="gabinet1.png" alt="Gabinet 1">
             </div>
+            <!-- Drugi kafelek -->
             <div class="map-card">
                 <p>ul. Jana Zamoyskiego 67/2</p>
-                <img id="mapImage2" src="gabinetz1.png" alt="Gabinet 2">
+                <img id="map2" src="gabinetz1.png" alt="Gabinet 2">
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Funkcja do zmiany obrazków
+            function changeImage(imageElement, imageList) {
+                let currentIndex = 0;
+                setInterval(function () {
+                    imageElement.src = imageList[currentIndex];
+                    currentIndex = (currentIndex + 1) % imageList.length;
+                }, 3000); // Zmiana co 3 sekundy
+            }
+
+            // Obrazy dla pierwszego kafelka
+            const images1 = ["gabinet1.png", "gabinet2.png", "gabinet3.png"];
+            const map1 = document.getElementById("map1");
+            changeImage(map1, images1);
+
+            // Obrazy dla drugiego kafelka
+            const images2 = ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"];
+            const map2 = document.getElementById("map2");
+            changeImage(map2, images2);
+        });
+    </script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
