@@ -21,10 +21,6 @@
             text-align: center;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Quicksand', sans-serif;
-        }
-
         /* Nagłówek wideo */
         .hero {
             position: relative;
@@ -43,7 +39,7 @@
             object-fit: cover;
         }
 
-        /* Styl dla sekcji zespołu */
+        /* Sekcja zespołu */
         .team-section {
             background-color: rgb(222, 165, 112);
             padding: 50px 30px;
@@ -87,7 +83,6 @@
             border-radius: 10px;
         }
 
-        /* Dodatkowe odstępy */
         .card p {
             line-height: 1.8;
             margin-bottom: 15px;
@@ -115,8 +110,13 @@
 
     <!-- Nagłówek -->
     <header class="hero">
-        <video id="headerVideo" playsinline muted>
+        <video id="desktopVideo" class="video-desktop" playsinline muted>
             <source src="header.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje wideo.
+        </video>
+
+        <video id="mobileVideo" class="video-mobile" playsinline muted>
+            <source src="header_mobi.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
     </header>
@@ -153,13 +153,27 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const video = document.getElementById("headerVideo");
+            const desktopVideo = document.getElementById("desktopVideo");
+            const mobileVideo = document.getElementById("mobileVideo");
+            const isMobile = window.innerWidth <= 768; // Sprawdza, czy użytkownik jest na mobilnym urządzeniu
 
-            video.play();
-            video.onended = function () {
-                video.setAttribute("poster", "header_last_frame.jpg"); // Ustawienie statycznej klatki
-                video.style.objectFit = "cover";
-            };
+            if (isMobile) {
+                desktopVideo.style.display = "none"; // Ukrywa wersję desktopową
+                mobileVideo.style.display = "block";
+                mobileVideo.play();
+                mobileVideo.onended = function () {
+                    mobileVideo.setAttribute("poster", "header_mobi_last_frame.jpg");
+                    mobileVideo.style.objectFit = "cover";
+                };
+            } else {
+                mobileVideo.style.display = "none"; // Ukrywa wersję mobilną
+                desktopVideo.style.display = "block";
+                desktopVideo.play();
+                desktopVideo.onended = function () {
+                    desktopVideo.setAttribute("poster", "header_last_frame.jpg");
+                    desktopVideo.style.objectFit = "cover";
+                };
+            }
         });
     </script>
 
