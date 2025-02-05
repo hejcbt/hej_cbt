@@ -75,7 +75,7 @@
 <body>
 
     <header class="hero">
-        <video autoplay muted loop playsinline>
+        <video muted playsinline>
             <source src="header.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
@@ -111,6 +111,19 @@
             <a href="#">Więcej informacji</a>
         </div>
     </div>
+
+    <script>
+        // JavaScript do odtwarzania wideo po najechaniu kursorem
+        const video = document.querySelector('.hero video');
+
+        video.addEventListener('mouseenter', function() {
+            this.play(); // Rozpoczęcie odtwarzania wideo po najechaniu kursorem
+        });
+
+        video.addEventListener('mouseleave', function() {
+            this.pause(); // Pauzowanie wideo po opuszczeniu przez kursor
+        });
+    </script>
 
 </body>
 </html>
