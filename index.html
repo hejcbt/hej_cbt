@@ -93,6 +93,42 @@
             margin-bottom: 10px;
         }
 
+        /* Sekcja mapy */
+        .map-section {
+            background-color: rgb(74, 125, 142);
+            padding: 50px 30px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 15px;
+        }
+
+        .map-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .map-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .map-card {
+            background-color: white;
+            width: 48%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .map-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
         /* Widok mobilny - szersze kafelki */
         @media (max-width: 768px) {
             .team-section {
@@ -102,6 +138,20 @@
 
             .card {
                 width: 90%;
+            }
+
+            .map-section {
+                width: 95%;
+                padding: 30px;
+            }
+
+            .map-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .map-card {
+                width: 100%;
             }
         }
     </style>
@@ -147,6 +197,21 @@
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
                 <h4>Rejestracja:</h4>
                 <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sekcja mapy -->
+    <div class="map-section">
+        <h2>Nasze Gabinety</h2>
+        <div class="map-container">
+            <!-- Pierwszy kafelek -->
+            <div class="map-card">
+                <img src="obrazek1.png" alt="Obrazek 1">
+            </div>
+            <!-- Drugi kafelek -->
+            <div class="map-card">
+                <img src="obrazek2.png" alt="Obrazek 2">
             </div>
         </div>
     </div>
