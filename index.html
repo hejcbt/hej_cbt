@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hej CBT</title>
 
-    <!-- Link do czcionki Quicksand z Google Fonts -->
+    <!-- Link do czcionki Quicksand -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -25,18 +25,15 @@
             font-family: 'Quicksand', sans-serif;
         }
 
-        /* Nagłówki wideo */
-        .hero-desktop,
-        .hero-mobile {
-            display: none;
+        /* Nagłówek wideo */
+        .hero {
             position: relative;
             width: 100%;
             height: 50vh;
             overflow: hidden;
         }
 
-        .hero-desktop video,
-        .hero-mobile video {
+        .hero video {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -46,19 +43,10 @@
             object-fit: cover;
         }
 
-        /* Pokazywanie odpowiedniego nagłówka */
-        @media (min-width: 769px) {
-            .hero-desktop { display: block; }
-        }
-
-        @media (max-width: 768px) {
-            .hero-mobile { display: block; }
-        }
-
-        /* Kafelek-tło dla sekcji z zespołem */
+        /* Styl dla sekcji zespołu */
         .team-section {
             background-color: rgb(222, 165, 112);
-            padding: 40px;
+            padding: 50px 30px;
             margin: 20px auto;
             width: 80%;
             border-radius: 15px;
@@ -67,7 +55,7 @@
             align-items: center;
         }
 
-        /* Styl nagłówka "Nasz Zespół" */
+        /* Nagłówek "Nasz Zespół" */
         .team-section h2 {
             font-size: 32px;
             font-weight: bold;
@@ -89,7 +77,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            width: 300px;
+            width: 320px;
             text-align: center;
         }
 
@@ -99,7 +87,7 @@
             border-radius: 10px;
         }
 
-        /* Dodatkowe odstępy między liniami */
+        /* Dodatkowe odstępy */
         .card p {
             line-height: 1.8;
             margin-bottom: 15px;
@@ -110,38 +98,30 @@
             margin-bottom: 10px;
         }
 
-        /* Widok mobilny: szersze kafelki w stosunku do tła */
+        /* Widok mobilny - szersze kafelki */
         @media (max-width: 768px) {
             .team-section {
-                width: 90%;
+                width: 95%;
                 padding: 30px;
             }
 
             .card {
-                width: 85%;
+                width: 90%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nagłówek dla wersji desktop -->
-    <header class="hero-desktop">
-        <video autoplay muted loop playsinline>
+    <!-- Nagłówek -->
+    <header class="hero">
+        <video id="headerVideo" playsinline muted>
             <source src="header.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
     </header>
 
-    <!-- Nagłówek dla wersji mobilnej -->
-    <header class="hero-mobile">
-        <video autoplay muted loop playsinline>
-            <source src="header_mobi.mp4" type="video/mp4">
-            Twoja przeglądarka nie obsługuje wideo.
-        </video>
-    </header>
-
-    <!-- Sekcja z zespołem -->
+    <!-- Sekcja zespołu -->
     <div class="team-section">
         <h2>Nasz Zespół</h2>
         <div class="container">
@@ -170,6 +150,18 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("headerVideo");
+
+            video.play();
+            video.onended = function () {
+                video.setAttribute("poster", "header_last_frame.jpg"); // Ustawienie statycznej klatki
+                video.style.objectFit = "cover";
+            };
+        });
+    </script>
 
 </body>
 </html>
