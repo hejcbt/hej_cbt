@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafelki z osobami</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 200px; /* Ustaw maksymalną szerokość logo */
+            height: auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card h4 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #007BFF;
+        }
+
+        .card a {
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">
+        <img src="logo_hej.png" alt="Logo firmy">
+    </div>
+
+    <h2>Nasze Osoby</h2>
+    
+    <div class="container">
+        <div class="card">
+            <img src="osoba3.png" alt="Osoba 1">
+            <h3>Helena Bieniek</h3>
+            <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letnego kursu psychoterapii poznawczo-behwaioralnej. W hej CBT prowadzi psychoterapię dorosłych. </p>
+            <h4>Rejestracja:</h4>
+            <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Twój Psycholog</a>
+            <a href="#">Więcej informacji</a>
+        </div>
+
+        <div class="card">
+            <img src="osoba1.png" alt="Osoba 2">
+            <h3>Ewa Buglewicz-Przewoźnik</h3>
+            <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letnego kursu psychoterapii poznawczo-behwaioralnej. W hej CBT prowadzi psychoterapię dorosłych, dzieci i młodziey. </p>
+            <h4>Rejestracja:</h4>
+            <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
+            <a href="#">Więcej informacji</a>
+        </div>
+
+        <div class="card">
+            <img src="osoba2.png" alt="Osoba 3">
+            <h3>Justyna Brączyk</h3>
+            <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letnego kursu psychoterapii poznawczo-behwaioralnej. W hej CBT prowadzi psychoterapię dorosłych. </p>
+            <h4>Rejestracja:</h4>
+            <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
+            <a href="#">Więcej informacji</a>
+        </div>
+    </div>
+
+</body>
+</html>
