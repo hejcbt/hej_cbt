@@ -199,42 +199,16 @@
     <div class="map-section">
         <h2>Nasze Gabinety</h2>
         <div class="map-container">
-            <!-- Pierwszy kafelek -->
             <div class="map-card">
                 <p>ul. Świętokrzyska 4/3</p>
-                <img id="map1" src="gabinet1.png" alt="Gabinet 1">
+                <img id="mapImage1" src="gabinet1.png" alt="Gabinet 1">
             </div>
-            <!-- Drugi kafelek -->
             <div class="map-card">
                 <p>ul. Jana Zamoyskiego 67/2</p>
-                <img id="map2" src="gabinetz1.png" alt="Gabinet 2">
+                <img id="mapImage2" src="gabinetz1.png" alt="Gabinet 2">
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Funkcja do zmiany obrazków
-            function changeImage(imageElement, imageList) {
-                let currentIndex = 0;
-                setInterval(function () {
-                    imageElement.src = imageList[currentIndex];
-                    currentIndex = (currentIndex + 1) % imageList.length;
-                }, 3000); // Zmiana co 3 sekundy
-            }
-
-            // Obrazy dla pierwszego kafelka
-            const images1 = ["gabinets1.png", "gabinets2.png", "gabinets3.png"];
-            const map1 = document.getElementById("map1");
-            changeImage(map1, images1);
-
-            // Obrazy dla drugiego kafelka
-            const images2 = ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"];
-            const map2 = document.getElementById("map2");
-            changeImage(map2, images2);
-        });
-    </script>
-
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -259,6 +233,25 @@
                     desktopVideo.style.objectFit = "cover";
                 };
             }
+
+            // Funkcja zmieniająca zdjęcia w gabinetach co 3 sekundy
+            let currentImage1 = 0;
+            const images1 = ["gabinet1.png", "gabinet2.png", "gabinet3.png"];
+            const mapImage1 = document.getElementById("mapImage1");
+
+            setInterval(function() {
+                mapImage1.src = images1[currentImage1];
+                currentImage1 = (currentImage1 + 1) % images1.length; // Zmienia na kolejny obrazek
+            }, 3000);
+
+            let currentImage2 = 0;
+            const images2 = ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"];
+            const mapImage2 = document.getElementById("mapImage2");
+
+            setInterval(function() {
+                mapImage2.src = images2[currentImage2];
+                currentImage2 = (currentImage2 + 1) % images2.length; // Zmienia na kolejny obrazek
+            }, 3000);
         });
     </script>
 
