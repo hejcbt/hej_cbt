@@ -14,17 +14,38 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            padding: 20px;
             text-align: center;
         }
 
-        .logo {
-            margin-bottom: 20px;
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
         }
 
-        .logo img {
-            max-width: 200px; /* Ustaw maksymalną szerokość logo */
-            height: auto;
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .container {
@@ -32,6 +53,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            padding: 20px;
         }
 
         .card {
@@ -48,42 +70,20 @@
             height: auto;
             border-radius: 10px;
         }
-
-        .card h3 {
-            margin: 10px 0;
-            font-size: 22px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .card h4 {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #007BFF;
-        }
-
-        .card a {
-            display: block;
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 5px 0;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
 
-    <div class="logo">
-        <img src="logo_hej.png" alt="Logo firmy">
-    </div>
+    <header class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="header.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje wideo.
+        </video>
+        <div class="overlay">
+            <h1>Witaj w hej CBT</h1>
+            <p>Profesjonalna pomoc psychologiczna</p>
+        </div>
+    </header>
 
     <h2>Nasze Osoby</h2>
     
@@ -91,27 +91,19 @@
         <div class="card">
             <img src="osoba1.png" alt="Osoba 1">
             <h3>Helena Bieniek</h3>
-            <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letnego kursu psychoterapii poznawczo-behwaioralnej. W hej CBT prowadzi psychoterapię dorosłych. </p>
-            <h4>Rejestracja:</h4>
-            <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Twój Psycholog</a>
+            <p>Psychoterapeutka poznawczo-behawioralna...</p>
             <a href="#">Więcej informacji</a>
         </div>
-
         <div class="card">
             <img src="osoba2.png" alt="Osoba 2">
             <h3>Ewa Buglewicz-Przewoźnik</h3>
-            <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letnego kursu psychoterapii poznawczo-behwaioralnej. W hej CBT prowadzi psychoterapię dorosłych, dzieci i młodziey. </p>
-            <h4>Rejestracja:</h4>
-            <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
+            <p>Psychoterapeutka poznawczo-behawioralna...</p>
             <a href="#">Więcej informacji</a>
         </div>
-
         <div class="card">
             <img src="osoba3.png" alt="Osoba 3">
             <h3>Justyna Brączyk</h3>
-            <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letnego kursu psychoterapii poznawczo-behwaioralnej. W hej CBT prowadzi psychoterapię dorosłych. </p>
-            <h4>Rejestracja:</h4>
-            <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
+            <p>Psychoterapeutka poznawczo-behawioralna...</p>
             <a href="#">Więcej informacji</a>
         </div>
     </div>
