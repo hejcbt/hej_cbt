@@ -25,43 +25,81 @@
             font-family: 'Quicksand', sans-serif;
         }
 
-        /* Ukrywanie nagłówków wideo na desktopie i mobile */
+        /* Nagłówki wideo */
         .hero-desktop,
         .hero-mobile {
             display: none;
-        }
-
-        /* Nagłówek dla wersji desktop */
-        .hero-desktop {
-            display: block;
             position: relative;
             width: 100%;
             height: 50vh;
+            overflow: hidden;
         }
 
-        /* Nagłówek dla wersji mobilnej */
-        .hero-mobile {
-            display: none;
-            position: relative;
+        .hero-desktop video,
+        .hero-mobile video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 100%;
-            height: 50vh;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Media Query dla urządzeń mobilnych */
+        /* Pokazywanie odpowiedniego nagłówka */
+        @media (min-width: 769px) {
+            .hero-desktop { display: block; }
+        }
+
         @media (max-width: 768px) {
-            .hero-desktop {
-                display: none; /* Ukrywamy nagłówek desktopowy na urządzeniach mobilnych */
-            }
-
-            .hero-mobile {
-                display: block; /* Pokazujemy nagłówek mobilny na urządzeniach mobilnych */
-            }
+            .hero-mobile { display: block; }
         }
 
-        /* Pozostałe style strony */
-        h2 {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
+        /* Kafelek-tło dla sekcji z osobami */
+        .team-section {
+            background-color: rgb(222, 165, 112);
+            padding: 40px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Dodatkowe odstępy między liniami */
+        .card p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .card h3, .card h4 {
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -84,63 +122,37 @@
     </header>
 
     <h2>Nasze Osoby</h2>
-    
-    <!-- Kontener z tłem dla kafelków -->
-    <div class="person-cards-container">
-        <div class="card">
-            <img src="osoba1.png" alt="Osoba 1">
-            <h3>Helena Bieniek</h3>
-            <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W hej CBT prowadzi psychoterapię dorosłych. </p>
-            <h4>Rejestracja:</h4>
-            <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Twój Psycholog</a>
-            <a href="#">Więcej informacji</a>
-        </div>
 
-        <div class="card">
-            <img src="osoba2.png" alt="Osoba 2">
-            <h3>Ewa Buglewicz-Przewoźnik</h3>
-            <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W hej CBT prowadzi psychoterapię dorosłych, dzieci i młodzieży. </p>
-            <h4>Rejestracja:</h4>
-            <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
-            <a href="#">Więcej informacji</a>
-        </div>
+    <div class="team-section">
+        <div class="container">
+            <div class="card">
+                <img src="osoba1.png" alt="Osoba 1">
+                <h3>Helena Bieniek</h3>
+                <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W hej CBT prowadzi psychoterapię dorosłych.</p>
+                <h4>Rejestracja:</h4>
+                <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Twój Psycholog</a>
+                <a href="#">Więcej informacji</a>
+            </div>
 
-        <div class="card">
-            <img src="osoba3.png" alt="Osoba 3">
-            <h3>Justyna Brączyk</h3>
-            <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W hej CBT prowadzi psychoterapię dorosłych. </p>
-            <h4>Rejestracja:</h4>
-            <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
-            <a href="#">Więcej informacji</a>
+            <div class="card">
+                <img src="osoba2.png" alt="Osoba 2">
+                <h3>Ewa Buglewicz-Przewoźnik</h3>
+                <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W hej CBT prowadzi psychoterapię dorosłych, dzieci i młodzieży.</p>
+                <h4>Rejestracja:</h4>
+                <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
+                <a href="#">Więcej informacji</a>
+            </div>
+
+            <div class="card">
+                <img src="osoba3.png" alt="Osoba 3">
+                <h3>Justyna Brączyk</h3>
+                <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W hej CBT prowadzi psychoterapię dorosłych.</p>
+                <h4>Rejestracja:</h4>
+                <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
+                <a href="#">Więcej informacji</a>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Wyszukiwanie wideo w elemencie HTML
-        const video = document.getElementById('heroVideo');
-
-        // Funkcja, która odtwarza wideo po załadowaniu strony
-        window.addEventListener('load', function() {
-            video.play(); // Odtwarzanie wideo przy załadowaniu strony
-        });
-
-        // Zatrzymanie wideo po zakończeniu odtwarzania
-        video.addEventListener('ended', function() {
-            video.pause(); // Pauzowanie wideo po jego zakończeniu
-            video.currentTime = 0; // Ustawienie wideo na początek
-        });
-
-        // Odtwarzanie wideo po najechaniu kursorem
-        video.addEventListener('mouseenter', function() {
-            this.play(); // Rozpoczęcie odtwarzania wideo po najechaniu kursorem
-        });
-
-        // Pauzowanie wideo po opuszczeniu przez kursor
-        video.addEventListener('mouseleave', function() {
-            this.pause(); // Pauzowanie wideo po opuszczeniu przez kursor
-            this.currentTime = 0; // Ustawienie wideo na początek
-        });
-    </script>
 
 </body>
 </html>
