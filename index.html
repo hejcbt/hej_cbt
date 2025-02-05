@@ -55,7 +55,7 @@
             .hero-mobile { display: block; }
         }
 
-        /* Kafelek-tło dla sekcji z osobami */
+        /* Kafelek-tło dla sekcji z zespołem */
         .team-section {
             background-color: rgb(222, 165, 112);
             padding: 40px;
@@ -65,6 +65,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* Styl nagłówka "Nasz Zespół" */
+        .team-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
         }
 
         .container {
@@ -101,6 +109,18 @@
             margin-top: 15px;
             margin-bottom: 10px;
         }
+
+        /* Widok mobilny: szersze kafelki w stosunku do tła */
+        @media (max-width: 768px) {
+            .team-section {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .card {
+                width: 85%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -121,9 +141,9 @@
         </video>
     </header>
 
-    <h2>Nasze Osoby</h2>
-
+    <!-- Sekcja z zespołem -->
     <div class="team-section">
+        <h2>Nasz Zespół</h2>
         <div class="container">
             <div class="card">
                 <img src="osoba1.png" alt="Osoba 1">
@@ -136,7 +156,7 @@
             <div class="card">
                 <img src="osoba2.png" alt="Osoba 2">
                 <h3>Ewa Buglewicz-Przewoźnik</h3>
-                <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
+                <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych, dzieci i młodzieży.</p>
                 <h4>Rejestracja:</h4>
                 <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
             </div>
