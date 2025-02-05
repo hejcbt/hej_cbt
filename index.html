@@ -16,13 +16,13 @@
         }
 
         body {
-            font-family: 'Quicksand', sans-serif; /* Zmieniamy czcionkę na Quicksand */
+            font-family: 'Quicksand', sans-serif;
             background-color: #f4f4f4;
             text-align: center;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Quicksand', sans-serif; /* Zmieniamy czcionkę dla nagłówków */
+            font-family: 'Quicksand', sans-serif;
         }
 
         .hero {
@@ -79,16 +79,27 @@
             border-radius: 10px;
         }
 
+        /* Większe odstępy między linijkami tekstu w .card */
+        .card p {
+            line-height: 1.6; /* Zwiększenie wysokości linii */
+            margin-bottom: 20px; /* Odstęp po paragrafie */
+        }
+
+        /* Dodatkowe odstępy między nagłówkami h3, h4, h5 */
+        h3, h4, h5 {
+            margin-bottom: 15px; /* Odstęp między nagłówkami */
+        }
+
         h2 {
-            font-family: 'Quicksand', sans-serif; /* Czcionka Quicksand dla nagłówków h2 */
-            font-weight: 700; /* Pogrubienie czcionki dla nagłówka */
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <video muted playsinline>
+        <video id="heroVideo" muted playsinline>
             <source src="header.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
@@ -126,15 +137,29 @@
     </div>
 
     <script>
-        // JavaScript do odtwarzania wideo po najechaniu kursorem
-        const video = document.querySelector('.hero video');
+        // Wyszukiwanie wideo w elemencie HTML
+        const video = document.getElementById('heroVideo');
 
+        // Funkcja, która odtwarza wideo po załadowaniu strony
+        window.addEventListener('load', function() {
+            video.play(); // Odtwarzanie wideo przy załadowaniu strony
+        });
+
+        // Zatrzymanie wideo po zakończeniu odtwarzania
+        video.addEventListener('ended', function() {
+            video.pause(); // Pauzowanie wideo po jego zakończeniu
+            video.currentTime = 0; // Ustawienie wideo na początek
+        });
+
+        // Odtwarzanie wideo po najechaniu kursorem
         video.addEventListener('mouseenter', function() {
             this.play(); // Rozpoczęcie odtwarzania wideo po najechaniu kursorem
         });
 
+        // Pauzowanie wideo po opuszczeniu przez kursor
         video.addEventListener('mouseleave', function() {
             this.pause(); // Pauzowanie wideo po opuszczeniu przez kursor
+            this.currentTime = 0; // Ustawienie wideo na początek
         });
     </script>
 
