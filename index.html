@@ -30,6 +30,9 @@
             width: 100%;
             height: 50vh;
             overflow: hidden;
+            background-image: url('your-image.png'); /* Tutaj podaj ścieżkę do swojego obrazka */
+            background-size: cover; /* Dopasowanie obrazu do tła */
+            background-position: center; /* Centrowanie obrazu */
         }
 
         .hero video {
@@ -40,6 +43,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 1; /* Ustawiamy z-index, aby wideo było widoczne na tle obrazka */
         }
 
         .overlay {
@@ -54,6 +58,17 @@
             align-items: center;
             color: white;
             background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Kontener dla kafelków z osobami z tłem */
+        .person-cards-container {
+            background-color: rgb(222, 165, 112); /* Kolor tła dla całego kontenera */
+            padding: 40px 20px; /* Odstępy wewnętrzne */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-radius: 10px; /* Zaokrąglenie krawędzi */
         }
 
         .container {
@@ -107,7 +122,8 @@
 
     <h2>Nasze Osoby</h2>
     
-    <div class="container">
+    <!-- Kontener z tłem dla kafelków -->
+    <div class="person-cards-container">
         <div class="card">
             <img src="osoba1.png" alt="Osoba 1">
             <h3>Helena Bieniek</h3>
