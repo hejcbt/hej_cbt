@@ -93,6 +93,18 @@
             margin-bottom: 10px;
         }
 
+        /* Widok mobilny - szersze kafelki */
+        @media (max-width: 768px) {
+            .team-section {
+                width: 95%;
+                padding: 30px;
+            }
+
+            .card {
+                width: 90%;
+            }
+        }
+
         /* Sekcja mapy */
         .map-section {
             background-color: rgb(74, 125, 142);
@@ -113,54 +125,28 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .map-card {
-            background-color: white;
-            width: 48%;
+            background: white;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 45%;
             text-align: center;
         }
 
         .map-card img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             border-radius: 10px;
         }
 
-        /* Dodanie stylu do adresów */
         .map-card p {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 15px;
-            color: rgb(74, 125, 142);
-        }
-
-        /* Widok mobilny - szersze kafelki */
-        @media (max-width: 768px) {
-            .team-section {
-                width: 95%;
-                padding: 30px;
-            }
-
-            .card {
-                width: 90%;
-            }
-
-            .map-section {
-                width: 95%;
-                padding: 30px;
-            }
-
-            .map-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .map-card {
-                width: 100%;
-            }
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -213,39 +199,40 @@
     <div class="map-section">
         <h2>Nasze Gabinety</h2>
         <div class="map-container">
-            <!-- Pierwszy kafelek -->
             <div class="map-card">
                 <p>ul. Świętokrzyska 4/3</p>
-                <img id="map1" src="gabinet1.png" alt="Gabinet 1">
+                <img id="mapImage1" src="gabinet1.png" alt="Gabinet 1">
             </div>
-            <!-- Drugi kafelek -->
             <div class="map-card">
                 <p>ul. Jana Zamoyskiego 67/2</p>
-                <img id="map2" src="gabinetz1.png" alt="Gabinet 2">
+                <img id="mapImage2" src="gabinetz1.png" alt="Gabinet 2">
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Funkcja do zmiany obrazków
-            function changeImage(imageElement, imageList) {
-                let currentIndex = 0;
-                setInterval(function () {
-                    imageElement.src = imageList[currentIndex];
-                    currentIndex = (currentIndex + 1) % imageList.length;
-                }, 3000); // Zmiana co 3 sekundy
+            const desktopVideo = document.getElementById("desktopVideo");
+            const mobileVideo = document.getElementById("mobileVideo");
+            const isMobile = window.innerWidth <= 768; // Sprawdza, czy użytkownik jest na mobilnym urządzeniu
+
+            if (isMobile) {
+                desktopVideo.style.display = "none"; // Ukrywa wersję desktopową
+                mobileVideo.style.display = "block";
+                mobileVideo.play();
+                mobileVideo.onended = function () {
+                    mobileVideo.setAttribute("poster", "header_mobi_last_frame.jpg");
+                    mobileVideo.style.objectFit = "cover";
+                };
+            } else {
+                mobileVideo.style.display = "none"; // Ukrywa wersję mobilną
+                desktopVideo.style.display = "block";
+                desktopVideo.play();
+                desktopVideo.onended = function () {
+                    desktopVideo.setAttribute("poster", "header_last_frame.jpg");
+                    desktopVideo.style.objectFit = "cover";
+                };
             }
-
-            // Obrazy dla pierwszego kafelka
-            const images1 = ["gabinet1.png", "gabinet2.png", "gabinet3.png"];
-            const map1 = document.getElementById("map1");
-            changeImage(map1, images1);
-
-            // Obrazy dla drugiego kafelka
-            const images2 = ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"];
-            const map2 = document.getElementById("map2");
-            changeImage(map2, images2);
         });
     </script>
 
