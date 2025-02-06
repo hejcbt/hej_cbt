@@ -133,7 +133,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            width: 45%;
+            width: 30%;
             text-align: center;
         }
 
@@ -238,6 +238,10 @@
                 <p>ul. Jana Zamoyskiego 67/2, <br>Kraków (Stare Podgórze)</p>
                 <img id="mapImage2" src="gabinetz1.png" alt="Gabinet 2">
             </div>
+            <div class="map-card">
+                <p>ul. Paulińska 30/2, <br>Kraków (Kazimierz)</p>
+                <img id="mapImage3" src="gabinetp1.png" alt="Gabinet 3">
+            </div>
         </div>
     </div>
 
@@ -291,6 +295,15 @@
             setInterval(function() {
                 mapImage2.src = images2[currentImage2];
                 currentImage2 = (currentImage2 + 1) % images2.length; // Zmienia na kolejny obrazek
+            }, 3000);
+
+            let currentImage3 = 0;
+            const images3 = ["gabinetp1.png", "gabinetp2.png", "gabinetp3.png"];
+            const mapImage3 = document.getElementById("mapImage3");
+
+            setInterval(function() {
+                mapImage3.src = images3[currentImage3];
+                currentImage3 = (currentImage3 + 1) % images3.length; // Zmienia na kolejny obrazek
             }, 3000);
         });
     </script>
