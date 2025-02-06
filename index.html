@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hej CBT</title>
 
-    <!-- Link do czcionki Quicksand -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link do czcionki Lemon Tuesday (przykład, jeśli masz dostęp do czcionki) -->
-    <link rel="stylesheet" href="https://example.com/path/to/lemon-tuesday-font.css">
-
+    <!-- Link do czcionki Lemon Tuesday -->
     <style>
+        @font-face {
+            font-family: 'Lemon Tuesday';
+            src: url('Lemon Tuesday.otf') format('opentype'); /* Ścieżka do pliku czcionki */
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -95,21 +98,6 @@
             margin-bottom: 10px;
         }
 
-        /* Styl dla linku "Umów się na wizytę" */
-        .appointment-link {
-            font-family: 'Lemon Tuesday', sans-serif; /* Zmieniamy czcionkę */
-            color: rgb(227, 114, 99); /* Kolor tekstu */
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            display: inline-block;
-        }
-
-        .appointment-link:hover {
-            text-decoration: underline; /* Podkreślenie przy najechaniu */
-        }
-
         /* Widok mobilny - szersze kafelki */
         @media (max-width: 768px) {
             .team-section {
@@ -120,6 +108,19 @@
             .card {
                 width: 90%;
             }
+        }
+
+        /* Link "Umów się na wizytę" */
+        .book-appointment {
+            font-family: 'Lemon Tuesday', sans-serif;
+            color: rgb(227, 114, 99);
+            font-size: 18px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .book-appointment:hover {
+            text-decoration: underline;
         }
 
         /* Sekcja mapy */
@@ -221,21 +222,21 @@
                 <img src="osoba1.png" alt="Osoba 1">
                 <h3><span style="color: rgb(227, 114, 99);">H</span>elena Bieniek</h3>
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
-                <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504" class="appointment-link">Umów się na wizytę</a>
+                <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504" class="book-appointment">Umów się na wizytę</a>
             </div>
 
             <div class="card">
                 <img src="osoba2.png" alt="Osoba 2">
                 <h3><span style="color: rgb(227, 114, 99);">E</span>wa Buglewicz-Przewoźnik</h3>
                 <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych, dzieci i młodzieży.</p>
-                <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260" class="appointment-link">Umów się na wizytę</a>
+                <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260" class="book-appointment">Umów się na wizytę</a>
             </div>
 
             <div class="card">
                 <img src="osoba3.png" alt="Osoba 3">
                 <h3><span style="color: rgb(227, 114, 99);">J</span>ustyna Brączyk</h3>
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
-                <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838" class="appointment-link">Umów się na wizytę</a>
+                <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838" class="book-appointment">Umów się na wizytę</a>
             </div>
         </div>
     </div>
@@ -308,7 +309,7 @@
 
             setInterval(function() {
                 mapImage2.src = images2[currentImage2];
-                currentImage2 = (currentImage2 + 1) % images2.length; // Zmienia na kolejny obrazek
+                currentImage2 = (currentImage2 + 1) % images2.length;
             }, 3000);
 
             let currentImage3 = 0;
@@ -317,10 +318,9 @@
 
             setInterval(function() {
                 mapImage3.src = images3[currentImage3];
-                currentImage3 = (currentImage3 + 1) % images3.length; // Zmienia na kolejny obrazek
+                currentImage3 = (currentImage3 + 1) % images3.length;
             }, 3000);
         });
     </script>
-
 </body>
 </html>
