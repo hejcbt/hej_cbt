@@ -133,7 +133,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            width: 45%;
+            width: 30%;
             text-align: center;
         }
 
@@ -281,13 +281,29 @@
             // Funkcja zmieniająca zdjęcia w gabinetach co 3 sekundy
             let currentImage1 = 0;
             const images1 = ["gabinet1.png", "gabinet2.png", "gabinet3.png"];
-            const mapImages = document.querySelectorAll('.map-card img');
+            const mapImage1 = document.getElementById("mapImage1");
 
             setInterval(function() {
-                mapImages.forEach((mapImage) => {
-                    mapImage.src = images1[currentImage1];
-                });
+                mapImage1.src = images1[currentImage1];
                 currentImage1 = (currentImage1 + 1) % images1.length; // Zmienia na kolejny obrazek
+            }, 3000);
+
+            let currentImage2 = 0;
+            const images2 = ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"];
+            const mapImage2 = document.getElementById("mapImage2");
+
+            setInterval(function() {
+                mapImage2.src = images2[currentImage2];
+                currentImage2 = (currentImage2 + 1) % images2.length; // Zmienia na kolejny obrazek
+            }, 3000);
+
+            let currentImage3 = 0;
+            const images3 = ["gabinetp1.png", "gabinetp2.png", "gabinetp3.png"];
+            const mapImage3 = document.getElementById("mapImage3");
+
+            setInterval(function() {
+                mapImage3.src = images3[currentImage3];
+                currentImage3 = (currentImage3 + 1) % images3.length; // Zmienia na kolejny obrazek
             }, 3000);
         });
     </script>
