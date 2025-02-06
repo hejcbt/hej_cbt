@@ -149,6 +149,19 @@
             margin-bottom: 10px;
         }
 
+        /* Widok mobilny - Zmiany w sekcji Gabinety */
+        @media (max-width: 768px) {
+            .map-container {
+                flex-direction: column; /* Ustawienie elementów jeden pod drugim */
+                align-items: center; /* Wyśrodkowanie elementów */
+            }
+
+            .map-card {
+                width: 90%; /* Zmniejszenie szerokości kafelków na urządzeniach mobilnych */
+                margin-bottom: 20px; /* Dodanie przestrzeni między kartami */
+            }
+        }
+
         /* Sekcja kontaktu */
         .contact-section {
             background-color: rgb(201, 80, 67); /* Kolor R: 201, G: 80, B: 67 */
