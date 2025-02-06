@@ -97,28 +97,6 @@
             margin-bottom: 10px;
         }
 
-        /* Widok mobilny - szersze kafelki */
-        @media (max-width: 768px) {
-            .team-section {
-                width: 95%;
-                padding: 30px;
-            }
-
-            .card {
-                width: 90%;
-            }
-
-            .map-container {
-                flex-direction: column; /* Kafelki jeden pod drugim */
-                align-items: center; /* Wyśrodkowanie kafelków */
-            }
-
-            .map-card {
-                width: 90%; /* Szerokość kafelków w widoku mobilnym */
-                margin-bottom: 20px; /* Odstęp między kafelkami */
-            }
-        }
-
         /* Sekcja mapy */
         .map-section {
             background-color: rgb(74, 125, 142);
@@ -205,6 +183,35 @@
 
         .book-appointment:hover {
             text-decoration: underline;
+        }
+
+        /* Widok mobilny - sekcja mapy */
+        @media (max-width: 768px) {
+            .team-section {
+                width: 95%;
+                padding: 30px;
+            }
+
+            .card {
+                width: 100%; /* Pełna szerokość kafelków w sekcji 'Nasz Zespół' */
+            }
+
+            /* Kafelki w sekcji mapy */
+            .map-container {
+                flex-direction: column; /* Kafelki jeden pod drugim */
+                align-items: center; /* Wyśrodkowanie kafelków */
+            }
+
+            .map-card {
+                width: 100%; /* Kafelki w sekcji mapy pełnej szerokości */
+                margin-bottom: 20px; /* Odstęp między kafelkami */
+            }
+
+            .map-card img {
+                width: 100%; /* Dopasowanie szerokości zdjęcia do szerokości kafelka */
+                height: auto;
+                border-radius: 10px;
+            }
         }
     </style>
 </head>
