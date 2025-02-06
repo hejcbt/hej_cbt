@@ -7,6 +7,8 @@
 
     <!-- Link do czcionki Quicksand -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link do czcionki Lemon Tuesday (przykład, jeśli masz dostęp do czcionki) -->
+    <link rel="stylesheet" href="https://example.com/path/to/lemon-tuesday-font.css">
 
     <style>
         * {
@@ -93,6 +95,21 @@
             margin-bottom: 10px;
         }
 
+        /* Styl dla linku "Umów się na wizytę" */
+        .appointment-link {
+            font-family: 'Lemon Tuesday', sans-serif; /* Zmieniamy czcionkę */
+            color: rgb(227, 114, 99); /* Kolor tekstu */
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .appointment-link:hover {
+            text-decoration: underline; /* Podkreślenie przy najechaniu */
+        }
+
         /* Widok mobilny - szersze kafelki */
         @media (max-width: 768px) {
             .team-section {
@@ -147,19 +164,6 @@
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
-        }
-
-        /* Widok mobilny - Zmiany w sekcji Gabinety */
-        @media (max-width: 768px) {
-            .map-container {
-                flex-direction: column; /* Ustawienie elementów jeden pod drugim */
-                align-items: center; /* Wyśrodkowanie elementów */
-            }
-
-            .map-card {
-                width: 90%; /* Zmniejszenie szerokości kafelków na urządzeniach mobilnych */
-                margin-bottom: 20px; /* Dodanie przestrzeni między kartami */
-            }
         }
 
         /* Sekcja kontaktu */
@@ -218,7 +222,7 @@
                 <h3><span style="color: rgb(227, 114, 99);">H</span>elena Bieniek</h3>
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
                 <h4>Umów się na wizytę:</h4>
-                <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Twój Psycholog</a>
+                <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504" class="appointment-link">Umów się na wizytę</a>
             </div>
 
             <div class="card">
@@ -226,7 +230,7 @@
                 <h3><span style="color: rgb(227, 114, 99);">E</span>wa Buglewicz-Przewoźnik</h3>
                 <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych, dzieci i młodzieży.</p>
                 <h4>Umów się na wizytę:</h4>
-                <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
+                <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260" class="appointment-link">Umów się na wizytę</a>
             </div>
 
             <div class="card">
@@ -234,7 +238,7 @@
                 <h3><span style="color: rgb(227, 114, 99);">J</span>ustyna Brączyk</h3>
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
                 <h4>Umów się na wizytę:</h4>
-                <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
+                <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838" class="appointment-link">Umów się na wizytę</a>
             </div>
         </div>
     </div>
