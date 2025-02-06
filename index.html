@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hej CBT</title>
 
-    <!-- Link do czcionki Lemon Tuesday -->
+    <!-- Link do czcionki Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Lemon Tuesday';
-            src: url('Lemon Tuesday.otf') format('opentype'); /* Ścieżka do pliku czcionki */
-            font-weight: normal;
-            font-style: normal;
+            src: url('lemon-tuesday.otf') format('opentype');
         }
 
         * {
@@ -110,19 +109,6 @@
             }
         }
 
-        /* Link "Umów się na wizytę" */
-        .book-appointment {
-            font-family: 'Lemon Tuesday', sans-serif;
-            color: rgb(227, 114, 99);
-            font-size: 24px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-
-        .book-appointment:hover {
-        text-decoration: underline;
-        }
-
         /* Sekcja mapy */
         .map-section {
             background-color: rgb(74, 125, 142);
@@ -197,6 +183,19 @@
             font-size: 18px;
             margin-top: 10px;
         }
+
+        /* Styl linków w sekcji 'Nasz Zespół' */
+        .book-appointment {
+            font-family: 'Lemon Tuesday', sans-serif;
+            color: rgb(227, 114, 99);
+            font-size: 24px;  /* Zwiększenie rozmiaru czcionki */
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .book-appointment:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -222,21 +221,24 @@
                 <img src="osoba1.png" alt="Osoba 1">
                 <h3><span style="color: rgb(227, 114, 99);">H</span>elena Bieniek</h3>
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
-                <a href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504" class="book-appointment">Umów się na wizytę</a>
+                <h4>Umów się na wizytę:</h4>
+                <a class="book-appointment" href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Twój Psycholog</a>
             </div>
 
             <div class="card">
                 <img src="osoba2.png" alt="Osoba 2">
                 <h3><span style="color: rgb(227, 114, 99);">E</span>wa Buglewicz-Przewoźnik</h3>
                 <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych, dzieci i młodzieży.</p>
-                <a href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260" class="book-appointment">Umów się na wizytę</a>
+                <h4>Umów się na wizytę:</h4>
+                <a class="book-appointment" href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Twój Psycholog</a>
             </div>
 
             <div class="card">
                 <img src="osoba3.png" alt="Osoba 3">
                 <h3><span style="color: rgb(227, 114, 99);">J</span>ustyna Brączyk</h3>
                 <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
-                <a href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838" class="book-appointment">Umów się na wizytę</a>
+                <h4>Umów się na wizytę:</h4>
+                <a class="book-appointment" href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Twój Psycholog</a>
             </div>
         </div>
     </div>
@@ -273,10 +275,10 @@
         document.addEventListener("DOMContentLoaded", function () {
             const desktopVideo = document.getElementById("desktopVideo");
             const mobileVideo = document.getElementById("mobileVideo");
-            const isMobile = window.innerWidth <= 768; // Sprawdza, czy użytkownik jest na mobilnym urządzeniu
+            const isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
-                desktopVideo.style.display = "none"; // Ukrywa wersję desktopową
+                desktopVideo.style.display = "none";
                 mobileVideo.style.display = "block";
                 mobileVideo.play();
                 mobileVideo.onended = function () {
@@ -284,7 +286,7 @@
                     mobileVideo.style.objectFit = "cover";
                 };
             } else {
-                mobileVideo.style.display = "none"; // Ukrywa wersję mobilną
+                mobileVideo.style.display = "none";
                 desktopVideo.style.display = "block";
                 desktopVideo.play();
                 desktopVideo.onended = function () {
@@ -293,14 +295,13 @@
                 };
             }
 
-            // Funkcja zmieniająca zdjęcia w gabinetach co 3 sekundy
             let currentImage1 = 0;
             const images1 = ["gabinet1.png", "gabinet2.png", "gabinet3.png"];
             const mapImage1 = document.getElementById("mapImage1");
 
             setInterval(function() {
                 mapImage1.src = images1[currentImage1];
-                currentImage1 = (currentImage1 + 1) % images1.length; // Zmienia na kolejny obrazek
+                currentImage1 = (currentImage1 + 1) % images1.length;
             }, 3000);
 
             let currentImage2 = 0;
