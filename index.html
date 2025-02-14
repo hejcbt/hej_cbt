@@ -7,7 +7,6 @@
 
     <!-- Link do czcionki Quicksand -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
         @font-face {
             font-family: 'Lemon Tuesday';
@@ -44,9 +43,50 @@
             object-fit: cover;
         }
 
-        /* Ukrywanie wideo przed załadowaniem */
-        .hidden {
-            display: none;
+        /* Reszta stylów - zespół, mapa, kontakt */
+        /* ... (tu pozostaje cały Twój wcześniejszy CSS) ... */
+
+        /* Baner cookies */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cookie-banner p {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .cookie-banner a {
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cookie-banner button {
+            background-color: #f1c40f;
+            border: none;
+            color: black;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .cookie-banner button:hover {
+            background-color: #e1b50d;
         }
     </style>
 </head>
@@ -54,32 +94,101 @@
 
     <!-- Nagłówek -->
     <header class="hero">
-        <video id="desktopVideo" class="video-desktop" playsinline muted autoplay preload="auto">
+        <video id="desktopVideo" class="video-desktop" playsinline muted>
             <source src="header.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
 
-        <video id="mobileVideo" class="video-mobile hidden" playsinline muted autoplay preload="auto">
+        <video id="mobileVideo" class="video-mobile" playsinline muted>
             <source src="header_mobi.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
     </header>
 
+    <!-- Sekcja zespołu -->
+    <div class="team-section">
+        <h2>Nasz Zespół</h2>
+        <div class="container">
+            <!-- Karty członków zespołu -->
+        </div>
+    </div>
+
+    <!-- Sekcja mapy -->
+    <div class="map-section">
+        <h2>Nasze Gabinety</h2>
+        <div class="map-container">
+            <!-- Karty z lokalizacjami -->
+        </div>
+    </div>
+
+    <!-- Sekcja kontaktu -->
+    <div class="contact-section">
+        <h2>Kontakt</h2>
+        <a href="https://www.instagram.com/hej_cbt" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <p>Napisz do nas: <a href="mailto:hejcbt@gmail.com">hejcbt@gmail.com</a></p>
+    </div>
+
+    <!-- Baner cookies -->
+    <div id="cookieBanner" class="cookie-banner">
+        <p>Ta strona używa plików cookies, aby zapewnić najlepsze doświadczenie użytkownika. 
+        <a href="polityka-prywatnosci.html">Dowiedz się więcej</a>.</p>
+        <button id="acceptCookies">Akceptuję</button>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const desktopVideo = document.getElementById("desktopVideo");
             const mobileVideo = document.getElementById("mobileVideo");
-            
-            if (window.innerWidth <= 768) {
-                desktopVideo.remove(); // Usuwamy desktopowe wideo dla mobilnych
-                mobileVideo.classList.remove("hidden");
-                mobileVideo.play().catch(error => console.log("Błąd odtwarzania wideo mobilnego:", error));
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                desktopVideo.style.display = "none";
+                mobileVideo.style.display = "block";
+                mobileVideo.play();
+                mobileVideo.onended = function () {
+                    mobileVideo.setAttribute("poster", "header_mobi_last_frame.jpg");
+                    mobileVideo.style.objectFit = "cover";
+                };
             } else {
-                mobileVideo.remove(); // Usuwamy mobilne wideo dla desktopów
-                desktopVideo.play().catch(error => console.log("Błąd odtwarzania wideo desktopowego:", error));
+                mobileVideo.style.display = "none";
+                desktopVideo.style.display = "block";
+                desktopVideo.play();
+                desktopVideo.onended = function () {
+                    desktopVideo.setAttribute("poster", "header_last_frame.jpg");
+                    desktopVideo.style.objectFit = "cover";
+                };
             }
+
+            // Animacja zmiany obrazków w sekcji mapy
+            function rotateImages(imageId, images, interval) {
+                let currentIndex = 0;
+                const imageElement = document.getElementById(imageId);
+
+                setInterval(() => {
+                    imageElement.src = images[currentIndex];
+                    currentIndex = (currentIndex + 1) % images.length;
+                }, interval);
+            }
+
+            rotateImages("mapImage1", ["gabinets1.png", "gabinets2.png"], 3000);
+            rotateImages("mapImage2", ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"], 3000);
+            rotateImages("mapImage3", ["gabinetp1.png", "gabinetp2.png", "gabinetp3.png"], 3000);
+
+            // Obsługa banera cookies
+            const cookieBanner = document.getElementById("cookieBanner");
+            const acceptCookiesBtn = document.getElementById("acceptCookies");
+
+            if (localStorage.getItem("cookiesAccepted")) {
+                cookieBanner.style.display = "none";
+            }
+
+            acceptCookiesBtn.addEventListener("click", function () {
+                localStorage.setItem("cookiesAccepted", "true");
+                cookieBanner.style.display = "none";
+            });
         });
     </script>
-
 </body>
 </html>
