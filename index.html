@@ -43,50 +43,175 @@
             object-fit: cover;
         }
 
-        /* Reszta stylów - zespół, mapa, kontakt */
-        /* ... (tu pozostaje cały Twój wcześniejszy CSS) ... */
+        /* Sekcja zespołu */
+        .team-section {
+            background-color: rgb(139, 164, 236);
+            padding: 50px 30px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        /* Baner cookies */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+        /* Nagłówek "Nasz Zespół" */
+        .team-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
             color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 320px;
             text-align: center;
-            padding: 15px;
-            font-size: 14px;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .card p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .card h3, .card h4 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Sekcja mapy */
+        .map-section {
+            background-color: rgb(82, 81, 79);
+            padding: 50px 30px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 15px;
+        }
+
+        .map-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .map-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        .cookie-banner p {
-            margin: 0;
-            flex-grow: 1;
+        .map-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            text-align: center;
         }
 
-        .cookie-banner a {
-            color: #f1c40f;
-            text-decoration: none;
+        .map-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .map-card p {
+            font-size: 18px;
             font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        .cookie-banner button {
-            background-color: #f1c40f;
-            border: none;
-            color: black;
-            padding: 8px 12px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-left: 10px;
+        /* Sekcja kontaktu */
+        .contact-section {
+            background-color: rgb(227, 110, 104); /* Kolor R: 201, G: 80, B: 67 */
+            padding: 15px 0;
+            margin-top: 50px;
+            width: 100%;
+            text-align: center;
         }
 
-        .cookie-banner button:hover {
-            background-color: #e1b50d;
+        .contact-section a {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .contact-section img {
+            width: 100px;
+            height: auto;
+        }
+
+        .contact-section h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .contact-section p {
+            color: white;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Styl linków w sekcji 'Nasz Zespół' */
+        .book-appointment {
+            font-family: 'Lemon Tuesday', sans-serif;
+            color: rgb(227, 114, 99);
+            font-size: 30px;  /* Zwiększenie rozmiaru czcionki */
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .book-appointment:hover {
+            text-decoration: underline;
+        }
+
+        /* Widok mobilny - sekcja mapy */
+        @media (max-width: 768px) {
+            .team-section {
+                width: 95%;
+                padding: 30px;
+            }
+
+            .card {
+                width: 100%; /* Pełna szerokość kafelków w sekcji 'Nasz Zespół' */
+            }
+
+            /* Kafelki w sekcji mapy */
+            .map-container {
+                flex-direction: column; /* Kafelki jeden pod drugim */
+                align-items: center; /* Wyśrodkowanie kafelków */
+            }
+
+            .map-card {
+                width: 100%; /* Kafelki w sekcji mapy pełnej szerokości */
+                margin-bottom: 20px; /* Odstęp między kafelkami */
+            }
+
+            .map-card img {
+                width: 100%; /* Dopasowanie szerokości zdjęcia do szerokości kafelka */
+                height: auto;
+                border-radius: 10px;
+            }
         }
     </style>
 </head>
@@ -94,12 +219,12 @@
 
     <!-- Nagłówek -->
     <header class="hero">
-        <video id="desktopVideo" class="video-desktop" playsinline muted>
+        <video id="desktopVideo" class="video-desktop" playsinline autoplay muted>
             <source src="header.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
 
-        <video id="mobileVideo" class="video-mobile" playsinline muted>
+        <video id="mobileVideo" class="video-mobile" playsinline autoplay muted>
             <source src="header_mobi.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje wideo.
         </video>
@@ -109,7 +234,26 @@
     <div class="team-section">
         <h2>Nasz Zespół</h2>
         <div class="container">
-            <!-- Karty członków zespołu -->
+            <div class="card">
+                <img src="osoba1.png" alt="Osoba 1">
+                <h3><span style="color: rgb(227, 114, 99);">H</span>elena Bieniek</h3>
+                <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
+                <a class="book-appointment" href="https://twojpsycholog.pl/profil-psychologa/helena-bieniek-4504">Umów się na wizytę</a>
+            </div>
+
+            <div class="card">
+                <img src="osoba2.png" alt="Osoba 2">
+                <h3><span style="color: rgb(227, 114, 99);">E</span>wa Buglewicz-Przewoźnik</h3>
+                <p>Psycholog, certyfikowana terapeutka behawioralna oraz psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych, dzieci i młodzieży.</p>
+                <a class="book-appointment" href="https://twojpsycholog.pl/profil-psychologa/ewa-buglewicz-przewoznik-4260">Umów się na wizytę</a>
+            </div>
+
+            <div class="card">
+                <img src="osoba3.png" alt="Osoba 3">
+                <h3><span style="color: rgb(227, 114, 99);">J</span>ustyna Brączyk</h3>
+                <p>Psycholog, psychoterapeutka poznawczo-behawioralna w trakcie całościowego 4-letniego kursu psychoterapii poznawczo-behawioralnej. W <strong>hej CBT</strong> prowadzi psychoterapię dorosłych.</p>
+                <a class="book-appointment" href="https://twojpsycholog.pl/profil-psychologa/justyna-braczyk-5838">Umów się na wizytę</a>
+            </div>
         </div>
     </div>
 
@@ -117,7 +261,18 @@
     <div class="map-section">
         <h2>Nasze Gabinety</h2>
         <div class="map-container">
-            <!-- Karty z lokalizacjami -->
+            <div class="map-card">
+                <p>ul. Świętokrzyska 4/3, <br>Kraków</p>
+                <img id="mapImage1" src="gabinets1.png" alt="Gabinet 1">
+            </div>
+            <div class="map-card">
+                <p>ul. Jana Zamoyskiego 67/2, <br>Kraków (Stare Podgórze)</p>
+                <img id="mapImage2" src="gabinetz1.png" alt="Gabinet 2">
+            </div>
+            <div class="map-card">
+                <p>ul. Paulińska 30/2, <br>Kraków (Kazimierz)</p>
+                <img id="mapImage3" src="gabinetp1.png" alt="Gabinet 3">
+            </div>
         </div>
     </div>
 
@@ -130,18 +285,12 @@
         <p>Napisz do nas: <a href="mailto:hejcbt@gmail.com">hejcbt@gmail.com</a></p>
     </div>
 
-    <!-- Baner cookies -->
-    <div id="cookieBanner" class="cookie-banner">
-        <p>Ta strona używa plików cookies, aby zapewnić najlepsze doświadczenie użytkownika. 
-        <a href="polityka-prywatnosci.html">Dowiedz się więcej</a>.</p>
-        <button id="acceptCookies">Akceptuję</button>
-    </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const desktopVideo = document.getElementById("desktopVideo");
             const mobileVideo = document.getElementById("mobileVideo");
             const isMobile = window.innerWidth <= 768;
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
             if (isMobile) {
                 desktopVideo.style.display = "none";
@@ -154,40 +303,47 @@
             } else {
                 mobileVideo.style.display = "none";
                 desktopVideo.style.display = "block";
-                desktopVideo.play();
+
+                if (isSafari) {
+                    desktopVideo.play().catch(function(error) {
+                        console.log("Wideo w Safari nie może się automatycznie odtworzyć. Spróbuj kliknąć w okno wideo.");
+                    });
+                } else {
+                    desktopVideo.play();
+                }
+
                 desktopVideo.onended = function () {
                     desktopVideo.setAttribute("poster", "header_last_frame.jpg");
                     desktopVideo.style.objectFit = "cover";
                 };
             }
 
-            // Animacja zmiany obrazków w sekcji mapy
-            function rotateImages(imageId, images, interval) {
-                let currentIndex = 0;
-                const imageElement = document.getElementById(imageId);
+            let currentImage1 = 0;
+            const images1 = ["gabinets1.png", "gabinets2.png"];
+            const mapImage1 = document.getElementById("mapImage1");
 
-                setInterval(() => {
-                    imageElement.src = images[currentIndex];
-                    currentIndex = (currentIndex + 1) % images.length;
-                }, interval);
-            }
+            setInterval(function() {
+                mapImage1.src = images1[currentImage1];
+                currentImage1 = (currentImage1 + 1) % images1.length;
+            }, 3000);
 
-            rotateImages("mapImage1", ["gabinets1.png", "gabinets2.png"], 5000);
-            rotateImages("mapImage2", ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"], 5000);
-            rotateImages("mapImage3", ["gabinetp1.png", "gabinetp2.png", "gabinetp3.png"], 5000);
+            let currentImage2 = 0;
+            const images2 = ["gabinetz1.png", "gabinetz2.png", "gabinetz3.png"];
+            const mapImage2 = document.getElementById("mapImage2");
 
-            // Obsługa banera cookies
-            const cookieBanner = document.getElementById("cookieBanner");
-            const acceptCookiesBtn = document.getElementById("acceptCookies");
+            setInterval(function() {
+                mapImage2.src = images2[currentImage2];
+                currentImage2 = (currentImage2 + 1) % images2.length;
+            }, 3000);
 
-            if (localStorage.getItem("cookiesAccepted")) {
-                cookieBanner.style.display = "none";
-            }
+            let currentImage3 = 0;
+            const images3 = ["gabinetp1.png", "gabinetp2.png", "gabinetp3.png"];
+            const mapImage3 = document.getElementById("mapImage3");
 
-            acceptCookiesBtn.addEventListener("click", function () {
-                localStorage.setItem("cookiesAccepted", "true");
-                cookieBanner.style.display = "none";
-            });
+            setInterval(function() {
+                mapImage3.src = images3[currentImage3];
+                currentImage3 = (currentImage3 + 1) % images3.length;
+            }, 3000);
         });
     </script>
 </body>
